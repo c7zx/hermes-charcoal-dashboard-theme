@@ -1,0 +1,16 @@
+.hcv-crest-wrap {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-right: .35rem;
+  opacity: .94;
+  pointer-events: none;
+}
+
+.hcv-crest {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05) drop-shadow(0 0 5px rgba(205, 213, 221, .10));
+}

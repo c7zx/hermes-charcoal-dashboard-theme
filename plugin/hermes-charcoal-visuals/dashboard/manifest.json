@@ -1,0 +1,17 @@
+{
+  "name": "hermes-charcoal-visuals",
+  "label": "Hermes Charcoal Visuals",
+  "description": "Unofficial frontend-only visuals for Hermes Charcoal v1.0.0. No backend/API routes.",
+  "icon": "Circle",
+  "version": "1.0.0",
+  "tab": {
+    "path": "/hermes-charcoal-visuals",
+    "position": "end",
+    "hidden": true
+  },
+  "slots": [
+    "header-left"
+  ],
+  "entry": "dist/index.js",
+  "css": "dist/style.css"
+}

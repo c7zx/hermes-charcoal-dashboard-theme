@@ -1,0 +1,344 @@
+# Charcoal v1.0.0 — visual-only Hermes dashboard theme.
+name: charcoal-v1-0-0
+label: Charcoal v1.0.0
+description: Black and silver — monolithic and atmospheric
+
+palette:
+  background: '#08090B'
+  midground: '#D7DADF'
+  foreground:
+    hex: '#C8CDD3'
+    alpha: 0.14
+  warmGlow: 'rgba(204, 211, 219, 0.06)'
+  noiseOpacity: 0.04
+
+typography:
+  fontSans: 'Inter, ui-sans-serif, system-ui, -apple-system, sans-serif'
+  fontMono: '"JetBrains Mono", ui-monospace, monospace'
+  fontDisplay: 'Georgia, "Times New Roman", serif'
+  baseSize: 15px
+  lineHeight: '1.5'
+  letterSpacing: '0'
+
+layout:
+  radius: 0.3rem
+  density: comfortable
+
+layoutVariant: standard
+
+terminalBackground: '#07090B'
+terminalForeground: '#D8DDE2'
+
+seriesColors:
+  inputTokenAccent: '#8F969F'
+  outputTokenAccent: '#D6DADE'
+
+assets:
+  bg: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-backdrop.png'
+  crest: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-symbol.png'
+  sidebar: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-sidebar.png'
+  custom:
+    emblem: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-emblem.png'
+    overlay: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-overlay.png'
+    surface: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-surface.png'
+    grain: '/dashboard-plugins/hermes-charcoal-visuals/assets/core/charcoal-grain.png'
+
+colorOverrides:
+  card: '#101216'
+  cardForeground: '#D7DADF'
+  popover: '#111318'
+  popoverForeground: '#D7DADF'
+  primary: '#C8CDD3'
+  primaryForeground: '#08090B'
+  secondary: '#181B20'
+  secondaryForeground: '#C9CDD2'
+  muted: '#16191D'
+  mutedForeground: '#8E949C'
+  accent: '#20242A'
+  accentForeground: '#E5E8EC'
+  destructive: '#9E6666'
+  destructiveForeground: '#FFF2F2'
+  success: '#748D7C'
+  warning: '#A9916B'
+  border: '#454B53'
+  input: '#454B53'
+  ring: '#D3D8DE'
+
+componentStyles:
+  sidebar:
+    background: 'linear-gradient(180deg, rgba(8,10,13,.82), rgba(5,7,9,.94)), var(--theme-asset-sidebar)'
+    boxShadow: 'inset -1px 0 rgba(190,198,207,.18)'
+  header:
+    background: 'linear-gradient(180deg, rgba(10,12,15,.88), rgba(7,9,11,.94))'
+    boxShadow: 'inset 0 -1px rgba(190,198,207,.16)'
+  card:
+    background: 'linear-gradient(155deg, rgba(17,19,23,.86), rgba(7,8,10,.91))'
+    borderColor: 'rgba(175,185,196,.20)'
+    boxShadow: 'inset 0 1px rgba(235,239,243,.035), inset 0 0 0 1px rgba(175,185,196,.035)'
+  tab:
+    background: 'rgba(10,12,15,.70)'
+  badge:
+    boxShadow: 'inset 0 0 0 1px rgba(175,185,196,.12)'
+  progress:
+    background: 'rgba(175,185,196,.12)'
+  page:
+    background: 'transparent'
+
+customCSS: |
+  :root {
+    --charcoal-canvas: #08090b;
+    --charcoal-panel: #101216;
+    --charcoal-raised: #111318;
+    --charcoal-text: #d7dadf;
+    --charcoal-text-secondary: #b2b7be;
+    --charcoal-muted: #858b93;
+    --charcoal-silver: #c8cdd3;
+    --charcoal-silver-bright: #d8dde2;
+    --charcoal-line: rgba(175,185,196,.22);
+    --charcoal-success: #748d7c;
+    --charcoal-warning: #a9916b;
+    --charcoal-danger: #9e6666;
+    --series-input-token: #8f969f !important;
+    --series-output-token: #d6dade !important;
+    --color-text-primary: #d7dadf;
+    --color-text-secondary: #b2b7be;
+    --color-text-tertiary: #858b93;
+  }
+
+  #root { position: relative; z-index: 1; }
+
+  /* Monumental background with a restrained local overlay. */
+  #root > div {
+    background-image:
+      linear-gradient(rgba(3,4,6,.66), rgba(3,4,6,.74)),
+      var(--theme-asset-custom-overlay, none),
+      var(--theme-asset-bg);
+    background-size: cover, cover, cover;
+    background-position: center, center, center;
+    background-repeat: no-repeat;
+  }
+
+  #app-sidebar {
+    border-right: 1px solid var(--charcoal-line);
+    color: var(--charcoal-text);
+    background-size: cover;
+    background-position: center bottom;
+  }
+
+  [role="dialog"],
+  [role="listbox"],
+  [data-slot="popover-content"] {
+    background:
+      linear-gradient(rgba(12,14,18,.965), rgba(7,9,12,.975)),
+      var(--theme-asset-custom-surface, none);
+    background-size: cover;
+    border: 1px solid var(--charcoal-line);
+    box-shadow: 0 18px 48px rgba(0,0,0,.52), inset 0 1px rgba(238,242,246,.03);
+  }
+
+  #app-sidebar > div:first-child,
+  #app-sidebar > div:last-child,
+  #app-sidebar nav,
+  header {
+    border-color: var(--charcoal-line);
+  }
+
+  #app-sidebar > div:first-child .text-midground,
+  header .text-midground {
+    font-family: Georgia, "Times New Roman", serif;
+    letter-spacing: .07em;
+  }
+
+  #app-sidebar nav a {
+    border-radius: .22rem;
+    margin-inline: .35rem;
+    padding-inline: .85rem;
+    letter-spacing: .035em;
+    transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  }
+
+  #app-sidebar nav a svg {
+    color: #8e969f;
+    border-radius: 999px;
+    padding: 2px;
+    filter: none;
+  }
+
+  #app-sidebar nav a[aria-current="page"] {
+    background: linear-gradient(90deg, rgba(195,203,212,.13), rgba(195,203,212,.025));
+    color: #e4e8ec;
+    box-shadow: inset 2px 0 #cbd1d8;
+  }
+
+  #app-sidebar nav a[aria-current="page"] svg {
+    color: #d4d9df;
+    filter: drop-shadow(0 0 5px rgba(212,217,223,.08));
+  }
+
+  #app-sidebar nav a:hover:not([aria-current="page"]) {
+    background: rgba(190,198,207,.06);
+  }
+
+  #hermes-profile-switcher { border-color: var(--charcoal-line); }
+
+  :where(h1, h2, h3, [data-slot="card-title"], [role="dialog"] h2) {
+    font-family: Georgia, "Times New Roman", serif;
+    letter-spacing: .008em;
+  }
+
+  :where([data-slot="card"]) { border-color: var(--charcoal-line); }
+
+  /* Shared dashboard cards keep the approved Hermes geometry, but use smoked-black chrome. */
+  #root main [class~="bg-background-base/80"][class~="border-midground/15"] {
+    border-color: rgba(175,185,196,.20);
+  }
+  #root main [class~="bg-background-base/80"][class~="border-midground/15"] > [class~="p-4"][class~="border-b"] {
+    padding: 1.05rem 1.25rem .95rem;
+    border-bottom-color: rgba(175,185,196,.16);
+    background: linear-gradient(90deg, rgba(200,205,211,.035), transparent 68%);
+  }
+  #root main [class~="bg-background-base/80"][class~="border-midground/15"] > [class~="p-4"]:not([class~="border-b"]) {
+    padding: 1.15rem 1.25rem 1.25rem;
+  }
+  @media (min-width: 640px) {
+    #root main > div[class*="lg:pt-6"] { padding-top: 1.75rem; }
+    #root main .contents > .flex.flex-col { row-gap: 1.375rem; }
+  }
+
+  :root {
+    --charcoal-code-bg: #080a0d;
+    --charcoal-code-ink: #c5cad0;
+    --charcoal-code-line: rgba(175,185,196,.20);
+  }
+  #root :is(main, [role="dialog"]) :not(pre):not(.font-mono) > code {
+    background: var(--charcoal-code-bg);
+    color: var(--charcoal-code-ink);
+    border: 1px solid var(--charcoal-code-line);
+    border-radius: .25rem;
+    padding: .13em .42em;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }
+  #root :is(main, [role="dialog"]) pre,
+  #root :is(main, [role="dialog"]) div.font-mono[class~="bg-background/40"] {
+    background:
+      linear-gradient(rgba(8,10,13,.955), rgba(8,10,13,.97)),
+      var(--theme-asset-custom-grain, none);
+    background-size: cover;
+    color: var(--charcoal-code-ink);
+    border: 1px solid var(--charcoal-code-line);
+    border-radius: .3rem;
+    box-shadow: inset 0 1px rgba(238,242,246,.025);
+  }
+  #root :is(main, [role="dialog"]) :is(pre, div.font-mono) > code {
+    background: transparent;
+    color: inherit;
+    border: 0;
+    padding: 0;
+  }
+  #root main code.block { padding: .5rem .7rem; }
+  #root main input[readonly] {
+    background: var(--charcoal-code-bg);
+    color: var(--charcoal-code-ink);
+    border-color: var(--charcoal-code-line);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  :where([data-slot="tabs-list"]) {
+    background: rgba(8,10,13,.66);
+    border-bottom: 1px solid rgba(175,185,196,.16);
+  }
+
+  :where([data-slot="tabs-trigger"][data-state="active"]) {
+    color: #e3e7eb;
+    box-shadow: inset 0 -1px #cbd1d8;
+  }
+
+  :where([data-slot="badge"]) { letter-spacing: .02em; }
+
+  :where(input, textarea, select, [role="combobox"]) {
+    color: var(--charcoal-text);
+    border-color: var(--charcoal-line);
+    background-color: rgba(8,10,13,.84);
+    border-radius: .3rem;
+    box-shadow: inset 0 1px rgba(0,0,0,.28);
+  }
+
+  #root main button[class*="border"]:not(:disabled):hover {
+    border-color: rgba(205,213,221,.42);
+    box-shadow: inset 0 1px rgba(238,242,246,.04);
+  }
+
+  :where(input, textarea)::placeholder {
+    color: var(--charcoal-muted);
+    opacity: 1;
+  }
+
+  #root :is(button, a, input, textarea, select, [role="combobox"]):focus-visible {
+    outline: 2px solid #cbd1d8;
+    outline-offset: 2px;
+  }
+
+  :where(table) { border-color: var(--charcoal-line); }
+  :where(th) { color: var(--charcoal-text); background: rgba(13,15,18,.95); }
+  :where(td, th) { border-color: var(--charcoal-line); }
+  :where(tr):hover { background-color: rgba(205,213,221,.025); }
+
+  main div[class~="bg-muted/20"][class~="border"][class~="flex-col"] {
+    background-color: rgba(14,16,20,.88);
+    border-color: rgba(175,185,196,.18);
+  }
+
+  /* Chat host only. Use /skin mono inside Hermes for the intended terminal palette. */
+  .hermes-chat-xterm-host {
+    border-radius: .22rem;
+    background: rgba(5,7,9,.94);
+  }
+
+  [data-chat-active="true"] .hermes-chat-xterm-host {
+    outline: 1px solid var(--charcoal-line);
+    outline-offset: 3px;
+  }
+
+  [data-chat-active="true"] .xterm {
+    scrollbar-color: #646b74 #07090b;
+  }
+
+  [data-chat-active="true"] [role="alert"] {
+    border-color: rgba(169,145,107,.48);
+    background: rgba(54,46,35,.26);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5e656e #090b0d;
+  }
+
+  ::selection {
+    background: rgba(205,213,221,.25);
+    color: #f4f6f8;
+  }
+
+  @media (prefers-reduced-transparency: no-preference) {
+    #app-sidebar,
+    header,
+    [role="dialog"],
+    [role="listbox"],
+    [data-slot="popover-content"] {
+      backdrop-filter: blur(14px);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(button, a, [data-slot="tabs-trigger"]) {
+      transition-duration: 150ms;
+      transition-timing-function: ease;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #app-sidebar nav a { transition: none; }
+  }
+
+  @media (max-width: 639px) {
+    #app-sidebar nav a { margin-inline: .2rem; }
+  }
