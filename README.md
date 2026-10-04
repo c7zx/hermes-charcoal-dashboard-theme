@@ -4,15 +4,15 @@ A monochrome theme for the Hermes web dashboard with black, graphite, and cold-s
 
 > Unofficial community theme for Hermes Agent.
 
-Charcoal is visual-only. It does not modify Hermes Core, the backend, sessions, PTY behavior, or navigation. No remote fonts, external assets, or additional runtime dependencies are required.
+A visual-only Dashboard-Theme. It does not modify Hermes Core, the backend, sessions, PTY behavior, or navigation. No remote fonts, external assets, or additional runtime dependencies are required.
 
 ## Preview
 
-![Charcoal Chat](preview/charcoal-chat.png)
+![Charcoal Chat](preview/chat-preview.png)
 
-![Charcoal Pairing](preview/charcoal-pairing.png)
+![Charcoal Pairing](preview/pairing-preview.png)
 
-![Charcoal Plugins](preview/charcoal-plugins.png)
+![Charcoal Plugins](preview/plugins-preview.png)
 
 ## Installation
 
